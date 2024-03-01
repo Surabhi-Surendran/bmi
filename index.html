@@ -19,34 +19,34 @@
 </head>
 
 <body class="all">
-    <nav class="navbar navbar-expand-lg" style="background-color: beige;width: 100%;">
+    <nav class="navbar navbar-expand-sm" style="background-color: beige;width: 100%;">
         <div class="container">
             <a class="navbar-brand" href="#"
                 style="font-style: italic; font-family: 'Times New Roman', Times, serif; font-size: xx-large; color: darkgreen;">BMI
                 Calculator</a>
         </div>
     </nav>
-    <center>
-    <section class="sec" style="">
-        <div class="row" style="display: flex; margin-bottom: 50px; margin: 80px;">
-            <div class="col-sm" style="">
-                <div class="row mt-5 " style="border: 2px solid green; border-radius: 5px; padding-left: 40px; 
-                    padding-top: 40px; padding-bottom: 40px; width: 400px;  ">
+
+    <section class="sec" >
+        <div class="row" style="display: flex; margin-bottom: 50px; margin:80px; margin-left: 200px; margin-right: 200px;">
+            <div class="col-md-6" style="">
+                <div class="row mt-5 " style="border: 2px solid green; border-radius: 5px; padding: 40px; ">
                     <form action="">
+                        <div class="form-group" >
                         <div class="row-lg " style="display: flex;">
                             <div class="col-4-sm">
                                 <h4>Age</h4>
                             </div>
                             <div class="col-sm ms-5">
-                                <input type="text" style="margin-left: 10px;">
+                                <input type="text"  class="form-control" style="margin-left: 10px;">
                             </div>
                         </div>
-                        <div class="row-sm mt-3" style="display: flex;">
+                        <div class="row-sm mt-3"  style="display: flex;">
                             <div class="col-4-sm">
                                 <h4>Gender</h4>
                             </div>
                             <div class="col-3-sm ms-4" style="margin-left: 10px;">
-                                <input type="radio" name="gender">
+                                <input type="radio"   name="gender">
                                 <label for="">Male</label>
                             </div>
                             <div class="col-3-sm">
@@ -58,7 +58,7 @@
                             <div class="col-4-sm ">
                                 <h4>Height</h4>
                             </div>
-                            <div class="col-sm ms-3" onclick="dis('ht')"><input type="text"
+                            <div class="col-sm ms-3" onclick="dis('ht')"><input type="text"class="form-control"
                                     style="margin-left: 10px;" placeholder="in cm" id="ht">
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                             <div class="col-4-sm ">
                                 <h4>Weight</h4>
                             </div>
-                            <div class="col-sm ms-2" onclick="dis"><input type="text" style="margin-left: 10px;"
+                            <div class="col-sm ms-2" onclick="dis"><input type="text"  class="form-control" style="margin-left: 10px;"
                                     placeholder="in Kg" id="wt">
                             </div>
                         </div>
@@ -82,9 +82,11 @@
                             </div>
                 </div>
             </div>
+        </div>
             </form>
-                     <div class="col-sm mt-5" style="padding: 20px;">
-                <div class="row" style="width: 500px; ">
+            <div class="col-1"></div>
+                     <div class="col-md-6 mt-5" style="padding: 20px;">
+                <div class="row" >
                     <h3 style="width: 450px; background-color: green;color:white;">Result</h3>
                 </div>
                 <div class="row mt-2" style="display: flex;">
@@ -103,6 +105,7 @@
         </div>
         </div>
     </section>
+    <center>
     <section style=" " >
         <div class="row-sm" style="margin-top: 40px;padding: 40px; margin: 80px;">
             <p>The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status
