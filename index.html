@@ -19,227 +19,198 @@
 </head>
 
 <body class="all">
-    <nav class="navbar navbar-expand-lg" style="background-color: beige;width: 100%;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: beige;">
         <div class="container">
-            <a class="navbar-brand" href="#"
-                style="font-style: italic; font-family: 'Times New Roman', Times, serif; font-size: xx-large; color: darkgreen;">BMI
-                Calculator</a>
+            <a class="navbar-brand"
+                style="font-style: italic; font-family: 'Times New Roman', Times, serif; font-size: xx-large; color: darkgreen;"
+                href="#">BMI Calculator</a>
         </div>
     </nav>
 
-    <section class="sec" >
-        <div class="row" style="display: flex; margin-bottom: 50px; margin:80px; margin-left: 200px; margin-right: 200px;">
-            <div class="col-md-5" style="">
-                <div class="row mt-5 " style="border: 2px solid green; border-radius: 5px; padding: 40px; ">
-                    <form action="">
-                        <div class="form-group" >
-                        <div class="row-lg " style="display: flex;">
-                            <div class="col-4-sm">
-                                <h4>Age</h4>
-                            </div>
-                            <div class="col-sm ms-5">
-                                <input type="text"  class="form-control" style="margin-left: 10px;">
-                            </div>
+    <section class="sec mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="card border-success mb-3">
+                        <div class="card-header text-center  text-white" style="background-color: darkgreen;">
+                            BMI Calculator
                         </div>
-                        <div class="row-sm mt-3"  style="display: flex;">
-                            <div class="col-4-sm">
-                                <h4>Gender</h4>
-                            </div>
-                            <div class="col-3-sm ms-4" style="margin-left: 10px;">
-                                <input type="radio"   name="gender">
-                                <label for="">Male</label>
-                            </div>
-                            <div class="col-3-sm ms-3">
-                                <input type="radio" name="gender">
-                                <label for="">Female</label>
-                            </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="age" class="form-label">Age</label>
+                                    <input type="number" class="form-control" id="age" placeholder="Enter your age">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Gender</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="male">
+                                        <label class="form-check-label" for="male">
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="female">
+                                        <label class="form-check-label" for="female">
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="height" class="form-label">Height (cm)</label>
+                                    <input type="number" class="form-control" id="ht" placeholder="Enter your height in cm">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="weight" class="form-label">Weight (kg)</label>
+                                    <input type="number" class="form-control" id="wt"  placeholder="Enter your weight in kg">
+                                </div>
+                                <div class="text-center">
+                                    <button
+                                    style="width: 150px; height: 40px;color: white; margin-left: 20px; background-color: green;border-color: transparent; border-radius: 5px;"
+                                    onclick="calculate()" type="submit">Calculate</button>
+                                <button onclick="reset" type="reset"
+                                    style="width: 100px; margin-left: 20px;border-color: transparent; border-radius: 5px;height: 40px;background-color: gray;color: white;">Reset</button>
+                             </div>
+                            </form>
                         </div>
-                        <div class="row-sm mt-3" style="display: flex;">
-                            <div class="col-4-sm ">
-                                <h4>Height</h4>
-                            </div>
-                            <div class="col-sm ms-3" onclick="dis('ht')"><input type="text"class="form-control"
-                                    style="margin-left: 10px;" placeholder="in cm" id="ht">
-                            </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card border-success  mb-3">
+                        <div class="card-header text-center text-white" style="background-color: darkgreen;">
+                            Result
                         </div>
-                        <div class="row-sm mt-3" style="display: flex;">
-                            <div class="col-4-sm ">
-                                <h4>Weight</h4>
-                            </div>
-                            <div class="col-sm ms-2" onclick="dis"><input type="text"  class="form-control" style="margin-left: 10px;"
-                                    placeholder="in Kg" id="wt">
-                            </div>
-                        </div>
-                        <div class="row mt-5">
-                            <div class="col-sm">
-                                <button
-                                style="width: 150px; height: 40px;color: white; margin-left: 20px; background-color: green;border-color: transparent; border-radius: 5px;"
-                                onclick="calculate()" type="submit">Calculate</button>
-                            <button onclick="reset" type="reset"
-                                style="width: 100px; margin-left: 20px;border-color: transparent; border-radius: 5px;height: 40px;background-color: gray;color: white;">Reset</button>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h2 class="card-title" id="bmi">Your BMI =</h2>
+                                <p class="card-text" id="category"></p>
                         
+                                    <h4 id="result" ></h4>
+                             
                             </div>
-                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-            </form>
-            <div class="col-1"></div>
-                     <div class="col-md-6 mt-5" style="padding: 20px;">
-                <div class="row" >
-                    <h3 style="width: 450px; background-color: green;color:white;">Result</h3>
-                </div>
-                <div class="row mt-2" style="display: flex;">
-                    <div class="col-4-lg" style="margin-top: 45px;">
-                        <h3 id="rslt">Your BMI =</h3>
-                    </div>
-                    <div class="col-3-lg">
-                        <p id="bmi" style="color: green; font-size: xx-large; font-size: 80px;">0</p>
-                    </div>
-                    <p id="category" style="color: brown;"></p>
-                </div>
-                <div class="col-8-lg">
-                    <h4 id="result" ></h4>
-                </div>
-            </div>
-        </div>
         </div>
     </section>
     <center>
-    <section style=" " >
-        <div class="row-sm" style="margin-top: 40px;padding: 40px; margin: 80px;">
-            <p>The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status
-                while taking age into consideration. Use the "Metric Units" tab for the International System of Units or
-                the "Other Units" tab to convert units into either US or metric units. Note that the calculator also
-                computes the Ponderal Index in addition to BMI, both of which are discussed below in detail.</p>
-            <h2 style="margin-top: 20px;">BMI introduction</h2>
-            <p style="margin-top: 20px;">BMI is a measurement of a person's leanness or corpulence based on their height
-                and weight, and is
-                intended to quantify tissue mass. It is widely used as a general indicator of whether a person has a
-                healthy body weight for their height. Specifically, the value obtained from the calculation of BMI is
-                used to categorize whether a person is underweight, normal weight, overweight, or obese depending on
-                what range the value falls between. These ranges of BMI vary based on factors such as region and age,
-                and are sometimes further divided into subcategories such as severely underweight or very severely
-                obese. Being overweight or underweight can have significant health effects, so while BMI is an imperfect
-                measure of healthy body weight, it is a useful indicator of whether any additional testing or action is
-                required. Refer to the table below to see the different categories based on BMI that are used by the
-                calculator.</p>
-                <h2 style="margin-top: 20px;">BMI Categories</h2>
-                <p style="margin-top: 20px;">
-                    Below 18.5 - Underweight
-<br>
-                    18.5-24.9 - Normal
+        <section style=" " >
+            <div class="row-sm" style="margin-top: 40px;padding: 40px; margin: 80px;">
+                <p>The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status
+                    while taking age into consideration. Use the "Metric Units" tab for the International System of Units or
+                    the "Other Units" tab to convert units into either US or metric units. Note that the calculator also
+                    computes the Ponderal Index in addition to BMI, both of which are discussed below in detail.</p>
+                <h2 style="margin-top: 20px;">BMI introduction</h2>
+                <p style="margin-top: 20px;">BMI is a measurement of a person's leanness or corpulence based on their height
+                    and weight, and is
+                    intended to quantify tissue mass. It is widely used as a general indicator of whether a person has a
+                    healthy body weight for their height. Specifically, the value obtained from the calculation of BMI is
+                    used to categorize whether a person is underweight, normal weight, overweight, or obese depending on
+                    what range the value falls between. These ranges of BMI vary based on factors such as region and age,
+                    and are sometimes further divided into subcategories such as severely underweight or very severely
+                    obese. Being overweight or underweight can have significant health effects, so while BMI is an imperfect
+                    measure of healthy body weight, it is a useful indicator of whether any additional testing or action is
+                    required. Refer to the table below to see the different categories based on BMI that are used by the
+                    calculator.</p>
+                    <h2 style="margin-top: 20px;">BMI Categories</h2>
+                    <p style="margin-top: 20px;">
+                        Below 18.5 - Underweight
+    <br>
+                        18.5-24.9 - Normal
+                        <br>
+                        25.0-29.9 - Overweight
+                        <br>
+                        30.0 and higher - Obese</p>
+                <h2 style="margin-top: 20px;">BMI chart for adults</h2>
+                <p style="margin-top: 20px;">This is a graph of BMI categories based on the World Health Organization data.
+                    The dashed lines represent
+                    subdivisions within a major categorization.</p>
+                <img src="https://d26tpo4cm8sb6k.cloudfront.net/img/bmi-chart.gif" class="img-fluid"
+                    alt="">
+                <h2 style="margin-top: 20px;">Risks associated with being overweight</h2>
+                <p style="margin-top: 20px;">Being overweight increases the risk of a number of serious diseases and health
+                    conditions. Below is a
+                    list of said risks, according to the Centers for Disease Control and Prevention (CDC):
                     <br>
-                    25.0-29.9 - Overweight
+                    High blood pressure
+                    Higher levels of LDL cholesterol, which is widely considered "bad cholesterol," lower levels of HDL
+                    cholesterol, considered to be good cholesterol in moderation, and high levels of triglycerides
+                    Type II diabetes
+                    Coronary heart disease
+                    Stroke
+                    Gallbladder disease
+                    Osteoarthritis, a type of joint disease caused by breakdown of joint cartilage
+                    Sleep apnea and breathing problems
+                    Certain cancers (endometrial, breast, colon, kidney, gallbladder, liver)
+                    Low quality of life
+                    Mental illnesses such as clinical depression, anxiety, and others
+                    Body pains and difficulty with certain physical functions
+                    Generally, an increased risk of mortality compared to those with a healthy BMI
+                    As can be seen from the list above, there are numerous negative, in some cases fatal, outcomes that may
+                    result from being overweight. Generally, a person should try to maintain a BMI below 25 kg/m2, but
+                    ideally should consult their doctor to determine whether or not they need to make any changes to their
+                    lifestyle in order to be healthier.
+                </p>
+                <h2  style="margin-top: 20px;">Limitations of BMI</h2>
+                <p  style="margin-top: 20px;">Although BMI is a widely used and useful indicator of healthy body weight, it does have its limitations.
+                    BMI is only an estimate that cannot take body composition into account. Due to a wide variety of body
+                    types as well as distribution of muscle, bone mass, and fat, BMI should be considered along with other
+                    measurements rather than being used as the sole method for determining a person's healthy body weight.
+                </p>
+                <h4  style="margin-top: 20px;">In adults:</h4>
+                <p  style="margin-top: 20px;">BMI cannot be fully accurate because it is a measure of excess body weight, rather than excess body fat.
+                    BMI is further influenced by factors such as age, sex, ethnicity, muscle mass, body fat, and activity
+                    level, among others. For example, an older person who is considered a healthy weight, but is completely
+                    inactive in their daily life may have significant amounts of excess body fat even though they are not
+                    heavy. This would be considered unhealthy, while a younger person with higher muscle composition of the
+                    same BMI would be considered healthy. In athletes, particularly bodybuilders who would be considered
+                    overweight due to muscle being heavier than fat, it is entirely possible that they are actually at a
+                    healthy weight for their body composition. Generally, according to the CDC:
                     <br>
-                    30.0 and higher - Obese</p>
-            <h2 style="margin-top: 20px;">BMI chart for adults</h2>
-            <p style="margin-top: 20px;">This is a graph of BMI categories based on the World Health Organization data.
-                The dashed lines represent
-                subdivisions within a major categorization.</p>
-            <img src="https://d26tpo4cm8sb6k.cloudfront.net/img/bmi-chart.gif" class="img-fluid"
-                alt="">
-            <h2 style="margin-top: 20px;">Risks associated with being overweight</h2>
-            <p style="margin-top: 20px;">Being overweight increases the risk of a number of serious diseases and health
-                conditions. Below is a
-                list of said risks, according to the Centers for Disease Control and Prevention (CDC):
-                <br>
-                High blood pressure
-                Higher levels of LDL cholesterol, which is widely considered "bad cholesterol," lower levels of HDL
-                cholesterol, considered to be good cholesterol in moderation, and high levels of triglycerides
-                Type II diabetes
-                Coronary heart disease
-                Stroke
-                Gallbladder disease
-                Osteoarthritis, a type of joint disease caused by breakdown of joint cartilage
-                Sleep apnea and breathing problems
-                Certain cancers (endometrial, breast, colon, kidney, gallbladder, liver)
-                Low quality of life
-                Mental illnesses such as clinical depression, anxiety, and others
-                Body pains and difficulty with certain physical functions
-                Generally, an increased risk of mortality compared to those with a healthy BMI
-                As can be seen from the list above, there are numerous negative, in some cases fatal, outcomes that may
-                result from being overweight. Generally, a person should try to maintain a BMI below 25 kg/m2, but
-                ideally should consult their doctor to determine whether or not they need to make any changes to their
-                lifestyle in order to be healthier.
-            </p>
-            <h2  style="margin-top: 20px;">Limitations of BMI</h2>
-            <p  style="margin-top: 20px;">Although BMI is a widely used and useful indicator of healthy body weight, it does have its limitations.
-                BMI is only an estimate that cannot take body composition into account. Due to a wide variety of body
-                types as well as distribution of muscle, bone mass, and fat, BMI should be considered along with other
-                measurements rather than being used as the sole method for determining a person's healthy body weight.
-            </p>
-            <h4  style="margin-top: 20px;">In adults:</h4>
-            <p  style="margin-top: 20px;">BMI cannot be fully accurate because it is a measure of excess body weight, rather than excess body fat.
-                BMI is further influenced by factors such as age, sex, ethnicity, muscle mass, body fat, and activity
-                level, among others. For example, an older person who is considered a healthy weight, but is completely
-                inactive in their daily life may have significant amounts of excess body fat even though they are not
-                heavy. This would be considered unhealthy, while a younger person with higher muscle composition of the
-                same BMI would be considered healthy. In athletes, particularly bodybuilders who would be considered
-                overweight due to muscle being heavier than fat, it is entirely possible that they are actually at a
-                healthy weight for their body composition. Generally, according to the CDC:
-                <br>
-                Older adults tend to have more body fat than younger adults with the same BMI.
-                Women tend to have more body fat than men for an equivalent BMI.
-                Muscular individuals and highly trained athletes may have higher BMIs due to large muscle mass.
-            </p>
-            <h4  style="margin-top: 20px;">In children and adolescents:</h4>
-            <p  style="margin-top: 20px;">The same factors that limit the efficacy of BMI for adults can also apply to children and adolescents.
-                Additionally, height and level of sexual maturation can influence BMI and body fat among children. BMI
-                is a better indicator of excess body fat for obese children than it is for overweight children, whose
-                BMI could be a result of increased levels of either fat or fat-free mass (all body components except for
-                fat, which includes water, organs, muscle, etc.). In thin children, the difference in BMI can also be
-                due to fat-free mass.
-<br>
-                That being said, BMI is fairly indicative of body fat for 90-95% of the population, and can effectively
-                be used along with other measures to help determine an individual's healthy body weight.</p>
-             
-        </div>
-    </section>
-    <footer class=" text-center mt-5" style="background-color:rgb(250, 250, 233);">
-        <!-- Grid container -->
+                    Older adults tend to have more body fat than younger adults with the same BMI.
+                    Women tend to have more body fat than men for an equivalent BMI.
+                    Muscular individuals and highly trained athletes may have higher BMIs due to large muscle mass.
+                </p>
+                <h4  style="margin-top: 20px;">In children and adolescents:</h4>
+                <p  style="margin-top: 20px;">The same factors that limit the efficacy of BMI for adults can also apply to children and adolescents.
+                    Additionally, height and level of sexual maturation can influence BMI and body fat among children. BMI
+                    is a better indicator of excess body fat for obese children than it is for overweight children, whose
+                    BMI could be a result of increased levels of either fat or fat-free mass (all body components except for
+                    fat, which includes water, organs, muscle, etc.). In thin children, the difference in BMI can also be
+                    due to fat-free mass.
+    <br>
+                    That being said, BMI is fairly indicative of body fat for 90-95% of the population, and can effectively
+                    be used along with other measures to help determine an individual's healthy body weight.</p>
+                 
+            </div>
+        </section>
+    <footer class="text-center mt-5" style="background-color:rgb(250, 250, 233);">
         <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
             <section class="mb-4">
-                <!-- Facebook -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
-                    href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-
-                <!-- Twitter -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;"
-                    href="#!" role="button"><i class="fab fa-twitter"></i></a>
-
-                <!-- Google -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39;"
-                    href="#!" role="button"><i class="fab fa-google"></i></a>
-
-                <!-- Instagram -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;"
-                    href="#!" role="button"><i class="fab fa-instagram"></i></a>
-
-                <!-- Linkedin -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;"
-                    href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
-                <!-- Github -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333;"
-                    href="#!" role="button"><i class="fab fa-github"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
+                    style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
+                    style="background-color: #55acee;" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
+                    style="background-color: #dd4b39;" href="#!" role="button"><i class="fab fa-google"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
+                    style="background-color: #ac2bac;" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
+                    style="background-color: #0082ca;" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
+                    style="background-color: #333333;" href="#!" role="button"><i class="fab fa-github"></i></a>
             </section>
-            <!-- Section: Social media -->
         </div>
-        <!-- Grid container -->
-
-        <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2024 Copyright:
             <a class="text-body" href="https://mdbootstrap.com/">BMI</a>
         </div>
-        <!-- Copyright -->
     </footer>
-</center>
+
     <script>
-
-
-        const bmiText = document.getElementById('bmi');
+       
+       const bmiText = document.getElementById('bmi');
         const descText = document.getElementById('category');
         const form = document.querySelector('form');
 
@@ -276,8 +247,3 @@
         }
 
     </script>
-
-
-</body>
-
-</html>
